@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+		<meta lang="es">
+		<meta name="description" content="Resumen del contenido"> 
+		<meta name="description" content="Free Web tutorials">
+  		<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+  		<meta name="author" content="Juan Carlos">
+	<title>buscar y borrar nodos -  removeChild</title>
+	<style type="text/css">
+		div {
+			background-color: yellow;
+			width: 200px;
+			height: 50px;
+			text-align: center;
+		}
+	</style>
+	<!-- libreria JQuery-->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript">
+		//activar listeners
+		window.onload = function() {
+			var enlaces = document.querySelectorAll('.capa a');
+			for (e=0;e < enlaces.length; e++) {
+				enlaces[e].addEventListener('click',cambiarDiv);
+			}
+		}
+
+
+		function cambiarDiv() {
+			//crear un objeto de tipo boton
+			var boton = document.createElement('button');
+			boton.innerText='nuevo boton';
+			//hay que situarse en el padre del contenedor actual
+			//sube node de la caja contenedora <a>
+			var parent= this.parentNode;
+			//trasladar objeto creado(boton ) a continuacion de la caja que se ha pulsado
+			//parent.insertAdjacentElement('afterend',boton); //despues de la caja
+			parent.insertAdjacentElement('beforebegin',boton);//antes de la caja
+		}
+	</script>
+</head>
+<body>
+	<main>
+		<div class="capa">
+			<a href='#'>Pulsa en este enlace1</a>
+		</div>
+		<div class="capa">
+			<a href='#'>Pulsa en este enlace2</a>
+		</div>
+		<div class="capa">
+			<a href='#'>Pulsa en este enlace3</a>
+		</div>
+	</main>
+
+</body>
+</html>
